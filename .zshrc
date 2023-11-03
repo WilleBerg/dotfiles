@@ -23,7 +23,14 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/usr/bin/lua:$PATH
+PATH=$PATH:"/home/jam/Documents/Code/fsearch/target/release" # ADDED BY FSEARCH INSTALL SCRIPT AT Thu Oct 19 18:02:24 CEST 2023
+# PATH=$PATH:"/usr/bin/node"
+# PATH=$PATH:"/bin/node"
+PATH=$PATH:"/usr/bin"
+PATH=$PATH:"/home/jam/.local/bin"
+export PATH=$HOME/bin:~/.cargo/bin:/usr/local/bin:/usr/bin:$PATH
+# export PATH=$HOME/bin:~/.cargo/bin:/usr/local/bin:/usr/bin/lua:$PATH
+alias fs=fsearch
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -127,8 +134,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+[ -f "/home/jam/.ghcup/env" ] && source "/home/jam/.ghcup/env" # ghcup-env
