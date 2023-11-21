@@ -23,10 +23,10 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 ################################################################################
 #### FOR LAPTOP ################################################################
-PATH=$PATH:"/home/jam/Documents/Code/fsearch/target/release" # ADDED BY FSEARCH INSTALL SCRIPT AT Thu Oct 19 18:02:24 CEST 2023
-PATH=$PATH:"/usr/bin"
-PATH=$PATH:"/home/jam/.local/bin"
-export PATH=$HOME/bin:~/.cargo/bin:/usr/local/bin:/usr/bin:$PATH
+# PATH=$PATH:"/home/jam/Documents/Code/fsearch/target/release" # ADDED BY FSEARCH INSTALL SCRIPT AT Thu Oct 19 18:02:24 CEST 2023
+# PATH=$PATH:"/usr/bin"
+# PATH=$PATH:"/home/jam/.local/bin"
+# export PATH=$HOME/bin:~/.cargo/bin:/usr/local/bin:/usr/bin:$PATH
 ################################################################################
 #### FOR PC ####################################################################
 alias nvim="/home/sylt/nvim.appimage"
@@ -54,9 +54,12 @@ plugins=(git
     zsh-syntax-highlighting
     fast-syntax-highlighting
 )
-bindkey '^ ' autosuggest-accept
+bindkey '^\t' autosuggest-accept
+
 ################################################################################
 
 source $ZSH/oh-my-zsh.sh
 
-[ -f "/home/jam/.ghcup/env" ] && source "/home/jam/.ghcup/env" # ghcup-env
+#[ -f "/home/jam/.ghcup/env" ] && source "/home/jam/.ghcup/env" # ghcup-env
+
+[ -f "/home/sylt/.ghcup/env" ] && source "/home/sylt/.ghcup/env" # ghcup-env
