@@ -54,7 +54,8 @@ plugins=(git
     zsh-syntax-highlighting
     fast-syntax-highlighting
 )
-bindkey '^\t' autosuggest-accept
+# Bind Ctrl+Tab to autosuggest-accept
+bindkey '^ ' autosuggest-accept
 
 ################################################################################
 
