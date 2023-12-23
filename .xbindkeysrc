@@ -71,6 +71,12 @@
 ## Increase brightness
 "brightnessctl s 5%+"
     XF86MonBrightnessUp
+
+## Change keyboard language
+"setxkbmap us"
+    mod1+ +a
+"setxkbmap se"
+    mod1+ +s
 ##################################
 # End of xbindkeys configuration #
 ##################################
