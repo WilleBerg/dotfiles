@@ -74,9 +74,9 @@
 
 ## Change keyboard language
 "setxkbmap us"
-    mod1+ +a
+    mod1+F1
 "setxkbmap se"
-    mod1+ +s
+    mod1+F2
 ##################################
 # End of xbindkeys configuration #
 ##################################
