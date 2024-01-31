@@ -26,6 +26,9 @@ exec --no-startup-id picom &
 exec --no-startup-id feh --bg-fill ~/dotfiles/Wallpapers/coolwallpaper.jpg
 exec --no-startup-id xbindkeys
 
+# PC
+exec xrandr --output DP-2 --mode 1920x1080 --rate 144
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
