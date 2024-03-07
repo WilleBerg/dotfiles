@@ -23,19 +23,21 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 ################################################################################
 #### FOR LAPTOP ################################################################
-PATH=$PATH:"/home/jam/Documents/Code/fsearch/target/release" # ADDED BY FSEARCH INSTALL SCRIPT AT Thu Oct 19 18:02:24 CEST 2023
-PATH=$PATH:"/usr/bin"
-PATH=$PATH:"/home/jam/.local/bin"
-export PATH=$HOME/bin:~/.cargo/bin:/usr/local/bin:/usr/bin:$PATH
+#PATH=$PATH:"/home/jam/Documents/Code/fsearch/target/release" # ADDED BY FSEARCH INSTALL SCRIPT AT Thu Oct 19 18:02:24 CEST 2023
+#PATH=$PATH:"/usr/bin"
+#PATH=$PATH:"/home/jam/.local/bin"
+#export PATH=$HOME/bin:~/.cargo/bin:/usr/local/bin:/usr/bin:$PATH
 ################################################################################
 #### FOR PC ####################################################################
-# alias nvim="/home/sylt/nvim.appimage"
-# alias obsidian="/home/sylt/Obsidian-1.4.13.AppImage"
-#
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# PATH=/home/sylt/.local/bin:/usr/local/texlive/2022/bin/x86_64-linux:/home/sylt/.local/bin:/home/sylt/.nvm/versions/node/v18.12.1/bin:/usr/local/texlive/2022/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-# PATH=$PATH:"/home/sylt/.cargo/bin"
-# PATH=$PATH:"/usr/bin/"
+alias nvim="/home/sylt/nvim.appimage"
+alias obsidian="/home/sylt/Obsidian-1.4.13.AppImage"
+alias grammar="git add *; git commit -m "grammar"; git push"
+alias p3="python3"
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+PATH=/home/sylt/.local/bin:/usr/local/texlive/2022/bin/x86_64-linux:/home/sylt/.local/bin:/home/sylt/.nvm/versions/node/v18.12.1/bin:/usr/local/texlive/2022/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH=$PATH:"/home/sylt/.cargo/bin"
+PATH=$PATH:"/usr/bin/"
 ################################################################################
 #### FOR ALL ###################################################################
 alias fs=fsearch
@@ -64,6 +66,25 @@ source $ZSH/oh-my-zsh.sh
 [ -f "/home/jam/.ghcup/env" ] && source "/home/jam/.ghcup/env" # ghcup-env
 
 # [ -f "/home/sylt/.ghcup/env" ] && source "/home/sylt/.ghcup/env" # ghcup-env
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+eval "$(zoxide init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/sylt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/sylt/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/sylt/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/sylt/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+
