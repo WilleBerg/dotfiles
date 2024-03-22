@@ -38,6 +38,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=/home/sylt/.local/bin:/usr/local/texlive/2022/bin/x86_64-linux:/home/sylt/.local/bin:/home/sylt/.nvm/versions/node/v18.12.1/bin:/usr/local/texlive/2022/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 PATH=$PATH:"/home/sylt/.cargo/bin"
 PATH=$PATH:"/usr/bin/"
+# PATH=$PATH:"/home/sylt/.gch"
+# PATH=$PATH:"/home/sylt/.gchup/bin"
 ################################################################################
 #### FOR ALL ###################################################################
 alias fs=fsearch
@@ -63,13 +65,13 @@ bindkey '^ ' autosuggest-accept
 
 source $ZSH/oh-my-zsh.sh
 
-[ -f "/home/jam/.ghcup/env" ] && source "/home/jam/.ghcup/env" # ghcup-env
 
-# [ -f "/home/sylt/.ghcup/env" ] && source "/home/sylt/.ghcup/env" # ghcup-env
+[ -f "/home/sylt/.ghcup/env" ] && source "/home/sylt/.ghcup/env" # ghcup-env
 # export PYENV_ROOT="$HOME/.pyenv"
 # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"
+# [ -f "/home/jam/.ghcup/env" ] && source "/home/jam/.ghcup/env" # ghcup-env
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
