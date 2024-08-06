@@ -14,7 +14,7 @@ USR_HOME=$HOME
 
 sudo apt update && sudo apt upgrade
 sudo apt install nala
-sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools
+sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools gcc
 
 echo "======================= INSTALLING OHMYZSH ======================="
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
