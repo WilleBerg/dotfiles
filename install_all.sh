@@ -43,8 +43,8 @@ mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
 echo "Adding $USR_HOME/.local/bin to rc files"
-echo "export PATH=$USR_HOME/.local/bin:$PATH" >> $USR_HOME/.bashrc
-echo "export PATH=$USR_HOME/.local/bin:$PATH" >> $USR_HOME/.zshrc
+echo 'export PATH="$USR_HOME/.local/bin:$PATH"' >> $USR_HOME/.bashrc
+echo 'export PATH="$USR_HOME/.local/bin:$PATH"' >> $USR_HOME/.zshrc
 
 echo "Installing TMP"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -59,7 +59,7 @@ mv $USR_HOME/Downloads/nvim-linux64 $USR_HOME/sw
 echo 'export PATH="$USR_HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.bashrc
 echo 'export PATH="$USR_HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.zshrc
 cd $USR_HOME/dotfiles/.config/nvim
-git clone https://github.com/WilleBerg/neovim-config-lua.git --depth 1 
+git clone https://github.com/WilleBerg/neovim-config-lua.git . --depth 1
 echo "=======================    INSTALL DONE    ======================="
 
 cd $USR_HOME 
