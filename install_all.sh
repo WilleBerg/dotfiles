@@ -56,8 +56,8 @@ wget -O $USR_HOME/Downloads/nvim-linux64.tar.gz $NEOVIM_DOWNLOAD_URL
 tar xzvf $USR_HOME/Downloads/nvim-linux64.tar.gz
 mkdir $USR_HOME/sw
 mv $USR_HOME/Downloads/nvim-linux64 $USR_HOME/sw
-echo 'export PATH="$USR_HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.bashrc
-echo 'export PATH="$USR_HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.zshrc
+echo 'export PATH="$HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.bashrc
+echo 'export PATH="$HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.zshrc
 cd $USR_HOME/dotfiles/.config/nvim
 git clone https://github.com/WilleBerg/neovim-config-lua.git . --depth 1
 echo "=======================    INSTALL DONE    ======================="
