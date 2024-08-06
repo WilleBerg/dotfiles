@@ -55,7 +55,7 @@ mkdir $USR_HOME/Downloads
 wget -O $USR_HOME/Downloads/nvim-linux64.tar.gz $NEOVIM_DOWNLOAD_URL
 tar xzvf $USR_HOME/Downloads/nvim-linux64.tar.gz
 mkdir $USR_HOME/sw
-mv $USR_HOME/Downloads/nvim-linux64 $USR_HOME/sw
+mv nvim-linux64 $USR_HOME/sw
 echo 'export PATH="$HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.bashrc
 echo 'export PATH="$HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.zshrc
 cd $USR_HOME/dotfiles/.config/nvim
