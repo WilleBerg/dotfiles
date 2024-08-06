@@ -34,9 +34,9 @@ echo "=======================    INSTALL DONE    ======================="
 
 echo "Setting up shell integration for fzf"
 # Set up fzf key bindings and fuzzy completion
-echo "eval \"$(fzf --bash)\"" >> $USR_HOME/.bashrc
+echo 'eval "$(fzf --bash)"' >> $USR_HOME/.bashrc
 # Set up fzf key bindings and fuzzy completion
-echo "source <(fzf --zsh)" >> $USR_HOME/.zshrc
+echo 'source <(fzf --zsh)' >> $USR_HOME/.zshrc
 
 echo "Changing cat to batcat"
 mkdir -p ~/.local/bin
@@ -51,12 +51,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "======================= INSTALLING NEOVIM  ======================="
 echo "Installing Neovim $NEOVIM_VERSION"
+mkdir $USR_HOME/Downloads
 wget -O $USR_HOME/Downloads/nvim-linux64.tar.gz $NEOVIM_DOWNLOAD_URL
 tar xzvf $USR_HOME/Downloads/nvim-linux64.tar.gz
 mkdir $USR_HOME/sw
 mv $USR_HOME/Downloads/nvim-linux64 $USR_HOME/sw
-echo "export PATH=$USR_HOME/sw/nvim-linux64/bin:$PATH" >> $USR_HOME/.bashrc
-echo "export PATH=$USR_HOME/sw/nvim-linux64/bin:$PATH" >> $USR_HOME/.zshrc
+echo 'export PATH="$USR_HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.bashrc
+echo 'export PATH="$USR_HOME/sw/nvim-linux64/bin:$PATH"' >> $USR_HOME/.zshrc
 cd $USR_HOME/dotfiles/.config/nvim
 git clone https://github.com/WilleBerg/neovim-config-lua.git --depth 1 
 echo "=======================    INSTALL DONE    ======================="
@@ -64,8 +65,8 @@ echo "=======================    INSTALL DONE    ======================="
 cd $USR_HOME 
 echo "======================= INSTALLING ZOXIDE  ======================="
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-echo "eval \"$(zoxide init zsh)\"" >> .zshrc
-echo "eval \"$(zoxide init bash)\"" >> .bashrc
+echo 'eval "$(zoxide init zsh)"' >> .zshrc
+echo 'eval "$(zoxide init bash)"' >> .bashrc
 echo "=======================    INSTALL DONE    ======================="
 
 read -p "Install kitty terminal emulator? [y/n] " choice
@@ -90,6 +91,7 @@ if [[ $choice == "y" || $choice == "Y" ]]; then
         sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
         # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
         echo 'kitty.desktop' > ~/.config/xdg-terminals.list
+    fi
 elif [[ $choice == "n" || $choice == "N" ]]; then
     read -p "Install alacritty terminal emulator? [y/n] " choice
     if [[ $choice == "y" || $choice == "Y" ]]; then
