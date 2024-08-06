@@ -5,21 +5,28 @@ NEOVIM_DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/v$NEOVIM
 
 echo "Starting install script..."
 
+if [ "$(id -u)" -eq 0 ]; then
+    echo "This script should not be run as root" >&2
+    exit 1
+fi
+
+USR_HOME=$HOME
+
 sudo apt update && sudo apt upgrade
 sudo apt install nala
-sudo nala install tmux zsh bat curl wget ripgrep fzf stow git
+sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools
 
 echo "======================= INSTALLING OHMYZSH ======================="
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo "=======================    INSTALL DONE    ======================="
 
 echo "Backing up old rc files"
-mv $HOME/.zshrc $HOME/.zshrc.bak
-mv $HOME/.bashrc $HOME/.bashrc.bak
-cd $HOME/dotfiles
+mv $USR_HOME/.zshrc $USR_HOME/.zshrc.bak
+mv $USR_HOME/.bashrc $USR_HOME/.bashrc.bak
+cd $USR_HOME/dotfiles
 stow .
-echo "alias l=\"ls -la\"" >> $HOME/.bashrc
-echo "alias l=\"ls -la\"" >> $HOME/.zshrc
+echo "alias l=\"ls -la\"" >> $USR_HOME/.bashrc
+echo "alias l=\"ls -la\"" >> $USR_HOME/.zshrc
 
 echo "=======================  INSTALLING RUST   ======================="
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -27,34 +34,34 @@ echo "=======================    INSTALL DONE    ======================="
 
 echo "Setting up shell integration for fzf"
 # Set up fzf key bindings and fuzzy completion
-echo "eval \"$(fzf --bash)\"" >> $HOME/.bashrc
+echo "eval \"$(fzf --bash)\"" >> $USR_HOME/.bashrc
 # Set up fzf key bindings and fuzzy completion
-echo "source <(fzf --zsh)" >> $HOME/.zshrc
+echo "source <(fzf --zsh)" >> $USR_HOME/.zshrc
 
 echo "Changing cat to batcat"
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
-echo "Adding $HOME/.local/bin to rc files"
-echo "export PATH=$HOME/.local/bin:$PATH" >> $HOME/.bashrc
-echo "export PATH=$HOME/.local/bin:$PATH" >> $HOME/.zshrc
+echo "Adding $USR_HOME/.local/bin to rc files"
+echo "export PATH=$USR_HOME/.local/bin:$PATH" >> $USR_HOME/.bashrc
+echo "export PATH=$USR_HOME/.local/bin:$PATH" >> $USR_HOME/.zshrc
 
 echo "Installing TMP"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "======================= INSTALLING NEOVIM  ======================="
 echo "Installing Neovim $NEOVIM_VERSION"
-wget -O $HOME/Downloads/nvim-linux64.tar.gz $NEOVIM_DOWNLOAD_URL
-tar xzvf $HOME/Downloads/nvim-linux64.tar.gz
-mkdir $HOME/sw
-mv $HOME/Downloads/nvim-linux64 $HOME/sw
-echo "export PATH=$HOME/sw/nvim-linux64/bin:$PATH" >> $HOME/.bashrc
-echo "export PATH=$HOME/sw/nvim-linux64/bin:$PATH" >> $HOME/.zshrc
-cd $HOME/dotfiles/.config/nvim
+wget -O $USR_HOME/Downloads/nvim-linux64.tar.gz $NEOVIM_DOWNLOAD_URL
+tar xzvf $USR_HOME/Downloads/nvim-linux64.tar.gz
+mkdir $USR_HOME/sw
+mv $USR_HOME/Downloads/nvim-linux64 $USR_HOME/sw
+echo "export PATH=$USR_HOME/sw/nvim-linux64/bin:$PATH" >> $USR_HOME/.bashrc
+echo "export PATH=$USR_HOME/sw/nvim-linux64/bin:$PATH" >> $USR_HOME/.zshrc
+cd $USR_HOME/dotfiles/.config/nvim
 git clone https://github.com/WilleBerg/neovim-config-lua.git --depth 1 
 echo "=======================    INSTALL DONE    ======================="
 
-cd $HOME 
+cd $USR_HOME 
 echo "======================= INSTALLING ZOXIDE  ======================="
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 echo "eval \"$(zoxide init zsh)\"" >> .zshrc
