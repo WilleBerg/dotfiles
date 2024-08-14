@@ -10,7 +10,6 @@
 # https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df
 #### AUTOCOMPLETE ##############################################################
 source ~/zsh_plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# # bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
@@ -21,15 +20,7 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-################################################################################
-#### FOR LAPTOP ################################################################
-#PATH=$PATH:"/home/jam/Documents/Code/fsearch/target/release" # ADDED BY FSEARCH INSTALL SCRIPT AT Thu Oct 19 18:02:24 CEST 2023
-#PATH=$PATH:"/usr/bin"
-#PATH=$PATH:"/home/jam/.local/bin"
-#export PATH=$HOME/bin:~/.cargo/bin:/usr/local/bin:/usr/bin:$PATH
-################################################################################
-#### FOR PC ####################################################################
-alias nvim="/home/sylt/nvim.appimage"
+
 alias obsidian="/home/sylt/Obsidian-1.4.13.AppImage"
 alias grammar="git add *; git commit -m "grammar"; git push"
 alias p3="python3"
@@ -38,12 +29,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=/home/sylt/.local/bin:/usr/local/texlive/2022/bin/x86_64-linux:/home/sylt/.local/bin:/home/sylt/.nvm/versions/node/v18.12.1/bin:/usr/local/texlive/2022/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 PATH=$PATH:"/home/sylt/.cargo/bin"
 PATH=$PATH:"/usr/bin/"
-# PATH=$PATH:"/home/sylt/.gch"
-# PATH=$PATH:"/home/sylt/.gchup/bin"
-################################################################################
-#### FOR ALL ###################################################################
-alias fs=fsearch
-################################################################################
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -67,26 +52,9 @@ source $ZSH/oh-my-zsh.sh
 
 
 [ -f "/home/sylt/.ghcup/env" ] && source "/home/sylt/.ghcup/env" # ghcup-env
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"
-# [ -f "/home/jam/.ghcup/env" ] && source "/home/jam/.ghcup/env" # ghcup-env
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/sylt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/sylt/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/sylt/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/sylt/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
+alias l="ls -la"
+export PATH="$HOME/sw/nvim-linux64/bin:$PATH"
