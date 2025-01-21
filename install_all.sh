@@ -14,7 +14,7 @@ USR_HOME=$HOME
 
 sudo apt update && sudo apt upgrade
 sudo apt install nala
-sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools gcc
+sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools gcc python3-pip lua5.1
 
 echo "======================= INSTALLING OHMYZSH ======================="
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -34,9 +34,9 @@ echo "=======================    INSTALL DONE    ======================="
 
 echo "Setting up shell integration for fzf"
 # Set up fzf key bindings and fuzzy completion
-echo 'eval "$(fzf --bash)"' >> $USR_HOME/.bashrc
+# echo 'eval "$(fzf --bash)"' >> $USR_HOME/.bashrc
 # Set up fzf key bindings and fuzzy completion
-echo 'source <(fzf --zsh)' >> $USR_HOME/.zshrc
+# echo 'source <(fzf --zsh)' >> $USR_HOME/.zshrc
 
 echo "Changing cat to batcat"
 mkdir -p ~/.local/bin
