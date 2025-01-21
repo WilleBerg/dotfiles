@@ -14,7 +14,7 @@ USR_HOME=$HOME
 
 sudo apt update && sudo apt upgrade
 sudo apt install nala
-sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools gcc python3-pip lua5.1
+sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools gcc python3-pip lua5.1 python3-pynvim liblua5.1-dev
 
 echo "======================= INSTALLING OHMYZSH ======================="
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -51,6 +51,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Installing node version manager"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+source $USR_HOME/.zshrc
+nvm install node
+npm install -g neovim
 
 echo "======================= INSTALLING NEOVIM  ======================="
 echo "Installing Neovim $NEOVIM_VERSION"
@@ -101,3 +104,6 @@ elif [[ $choice == "n" || $choice == "N" ]]; then
         echo "TODO"
     fi
 fi
+
+
+echo "Test neovim. If :checkhealth has a bunch of issues with highligting, try :TSUpdate"
