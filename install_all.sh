@@ -49,6 +49,9 @@ echo 'export PATH="$USR_HOME/.local/bin:$PATH"' >> $USR_HOME/.zshrc
 echo "Installing TMP"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+echo "Installing node version manager"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
 echo "======================= INSTALLING NEOVIM  ======================="
 echo "Installing Neovim $NEOVIM_VERSION"
 mkdir $USR_HOME/Downloads
