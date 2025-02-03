@@ -14,7 +14,9 @@ USR_HOME=$HOME
 
 sudo apt update && sudo apt upgrade
 sudo apt install nala
-sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools gcc python3-pip lua5.1 python3-pynvim liblua5.1-dev
+sudo nala install tmux zsh bat curl wget ripgrep fzf stow git net-tools gcc python3-pip lua5.1 python3-pynvim liblua5.1-dev brightnessctl xbindkeys
+# If brightness control doesnt work in i3
+# sudo gpasswd -a <username> video
 
 echo "======================= INSTALLING OHMYZSH ======================="
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
