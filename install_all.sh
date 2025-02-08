@@ -24,6 +24,11 @@ case $DISTRO_ID in
         echo "Running on Manjaro or Arch Linux"
         sudo pacman -Syu
         sudo pacman -S stow git tmux kitty lua51 luarocks base-devel python-pynvim python-pip neovim zoxide
+	mkdir $USR_HOME/.config/nvim
+        cd $USR_HOME/.config/nvim
+        git clone https://github.com/WilleBerg/neovim-config-lua.git . --depth 1
+        echo "Installing node version manager"
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
         ;;
     ubuntu)
         echo "Running on Ubuntu"
@@ -64,6 +69,12 @@ case $DISTRO_ID in
         echo 'eval "$(zoxide init zsh)"' >> .zshrc
         echo 'eval "$(zoxide init bash)"' >> .bashrc
         echo "=======================    INSTALL DONE    ======================="
+
+        echo "Installing node version manager"
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+        source $USR_HOME/.zshrc
+        nvm install node
+        npm install -g neovim
 
         read -p "Install kitty terminal emulator? [y/n] " choice
 
@@ -118,11 +129,7 @@ echo 'export PATH="$USR_HOME/.local/bin:$PATH"' >> $USR_HOME/.zshrc
 echo "Installing TMP"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-echo "Installing node version manager"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-source $USR_HOME/.zshrc
-nvm install node
-npm install -g neovim
 
 
 echo "Test neovim. If :checkhealth has a bunch of issues with highligting, try :TSUpdate"
+echo "For arch/manjaro, check .bashrc to get the nvm stuff and then install node"
