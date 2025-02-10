@@ -1,4 +1,4 @@
 #!/bin/bash
 
-nvim $HOME/projects/$(ls $HOME/projects| fzf --tmux 50%,50% --border-label ' Edit file ')
-
+old_dir=$(pwd)
+cd $HOME/projects && nvim $HOME/projects/$(ls $HOME/projects| fzf --tmux 80%,50% --border-label ' Edit file ' --preview 'bat --color=always {}')
