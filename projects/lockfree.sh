@@ -1,6 +1,10 @@
 #!/bin/bash
 if tmux has-session -t lockfree 2>/dev/null; then
-    tmux switch-client -t lockfree 
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t lockfree 
+    else
+        tmux attach -t lockfree
+    fi
 else
     cd $HOME/lockfree-benchmark
     tmux new-session -d -s lockfree
@@ -11,5 +15,9 @@ else
     tmux new-window -t lockfree:2
     tmux send-keys -t lockfree:2 'nvim Cargo.toml' C-m
     tmux select-window -t 1
-    tmux attach-session -t lockfree
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t lockfree
+    else
+        tmux attach-session -t lockfree
+    fi
 fi
