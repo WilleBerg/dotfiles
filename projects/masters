@@ -1,0 +1,17 @@
+#!/bin/bash
+if tmux has-session -t masters 2>/dev/null; then
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t masters 
+    else
+        tmux attach -t masters
+    fi
+else
+    cd $HOME/masters-thesis && tmux new-session -d -s masters 
+    tmux split-window -t masters -h
+    tmux select-pane -t 1
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t masters
+    else
+        tmux attach-session -t masters
+    fi
+fi

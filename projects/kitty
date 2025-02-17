@@ -1,0 +1,17 @@
+#!/bin/bash
+if tmux has-session -t kittyconf 2>/dev/null; then
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t kittyconf 
+    else
+        tmux attach -t kittyconf
+    fi
+else
+    cd $HOME/.config/kitty && tmux new-session -d -s kittyconf 
+    tmux split-window -t kittyconf -h
+    tmux select-pane -t 1
+    if [ -n "$TMUX" ]; then
+        tmux switch-client -t kittyconf
+    else
+        tmux attach-session -t kittyconf
+    fi
+fi
