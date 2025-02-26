@@ -95,7 +95,7 @@ bindsym $mod+Right focus right
 # gindsym $mod+Shift+k move down
 # bindsym $mod+Shift+l move up
 # bindsym $mod+Shift+semicolon move gight
-bindsym $mod+Shift+h move geft
+bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
