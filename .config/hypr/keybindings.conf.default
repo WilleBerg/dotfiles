@@ -23,7 +23,7 @@
 # $EDITOR = code
 # $EXPLORER = dolphin
 # $BROWSER = firefox
-# 
+
 $wm=Window Management
 $d=[$wm]
 bindd = $mainMod, Q, $d close focused window, exec, $scrPath/dontkillsteam.sh
@@ -32,7 +32,7 @@ bindd = $mainMod, Delete, $d kill hyprland session, exit
 bindd = $mainMod, W, $d toggle float, togglefloating, #
 bindd = $mainMod, G, $d toggle group, togglegroup
 bindd = Shift, F11, $d toggle fullscreen, fullscreen
-bindd = $mainMod Alt, L, $d lock screen, exec, lockscreen.sh
+bindd = $mainMod, L, $d lock screen, exec, lockscreen.sh
 bindd = $mainMod Shift, F, $d toggle pin on focused window, exec, $scrPath/windowpin.sh
 bindd = Control Alt, Delete, $d logout menu, exec, $scrPath/logoutlaunch.sh
 bindd = Alt_R, Control_R, $d toggle waybar and reload config, exec, killall waybar || (env reload_flag=1 $scrPath/wbarconfgen.sh)
@@ -43,26 +43,26 @@ bindd = $mainMod Control, H, $d change active group backwards   , changegroupact
 bindd = $mainMod Control, L, $d change active group forwards  , changegroupactive, f
 
 $d=[$wm|Change focus]
-bindd = $mainMod, H, $d focus left, movefocus, l
-bindd = $mainMod, L, $d focus right , movefocus, r
-bindd = $mainMod, K, $d focus up , movefocus, u
-bindd = $mainMod, J, $d focus down, movefocus, d
+bindd = $mainMod, Left, $d focus left, movefocus, l
+bindd = $mainMod, Right, $d focus right , movefocus, r
+bindd = $mainMod, Up, $d focus up , movefocus, u
+bindd = $mainMod, Down , $d focus down, movefocus, d
 # bindd = Alt, TAB, $d focus , movefocus, d,
 
 $d=[$wm|Resize Active Window]
 # Resize windows
-bindde = $mainMod Shift, L, $d resize window right , resizeactive, 30 0
-bindde = $mainMod Shift, H, $d resize window left, resizeactive, -30 0
-bindde = $mainMod Shift, K, $d resize window up, resizeactive, 0 -30
-bindde = $mainMod Shift, J, $d resize  window down, resizeactive, 0 30
+bindde = $mainMod Shift, Right, $d resize window right , resizeactive, 30 0
+bindde = $mainMod Shift, Left, $d resize window left, resizeactive, -30 0
+bindde = $mainMod Shift, Up, $d resize window up, resizeactive, 0 -30
+bindde = $mainMod Shift, Down, $d resize  window down, resizeactive, 0 30
 
 # Move active window around current workspace with mainMod + Shift + Control [←→↑↓]
 $d=[$wm|Move active window across workspace]
 $moveactivewindow=grep -q "true" <<< $(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch moveactive
-bindde = $mainMod Shift Control, H, Move active window to the left, exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l
-bindde = $mainMod Shift Control, L, Move active window to the right, exec, $moveactivewindow 30 0 || hyprctl dispatch movewindow r
-bindde = $mainMod Shift Control, K, Move active window up, exec, $moveactivewindow  0 -30 || hyprctl dispatch movewindow u
-bindde = $mainMod Shift Control, J, Move active window down, exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d
+bindde = $mainMod Shift Control, left, Move active window to the left, exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l
+bindde = $mainMod Shift Control, right, Move active window to the right, exec, $moveactivewindow 30 0 || hyprctl dispatch movewindow r
+bindde = $mainMod Shift Control, up, Move active window up, exec, $moveactivewindow  0 -30 || hyprctl dispatch movewindow u
+bindde = $mainMod Shift Control, down, Move active window down, exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d
 
 # Move/Resize focused window
 $d=[$wm|Move & Resize with mouse]
@@ -73,11 +73,11 @@ binddm = $mainMod, X, $d hold to resize window, resizewindow
 
 # Toggle focused window split
 $d=[$wm]
-bindd = $mainMod Alt, J, $d toggle split, togglesplit
+bindd = $mainMod, J, $d toggle split, togglesplit
 
 $l=Launcher
 $d=[$l|Apps]
-bindd = $mainMod, Return, $d terminal emulator , exec, $TERMINAL
+bindd = $mainMod, T, $d terminal emulator , exec, $TERMINAL
 bindd = $mainMod, E, $d file explorer , exec, $EXPLORER
 bindd = $mainMod, C, $d text editor , exec, $EDITOR
 bindd = $mainMod, B, $d web browser , exec, $BROWSER
@@ -119,7 +119,7 @@ binddel = , XF86MonBrightnessDown, $d decrease brightness , exec, $scrPath/brigh
 
 $ut=Utilities
 $d=[$ut]
-binddl = $mainMod Alt, K, $d toggle keyboard layout , exec, $scrPath/keyboardswitch.sh # switch keyboard layout
+binddl = $mainMod, K, $d toggle keyboard layout , exec, $scrPath/keyboardswitch.sh # switch keyboard layout
 bindd = $mainMod Alt, G, $d game mode , exec, $scrPath/gamemode.sh # disable hypr effects for gamemode
 
 $d=[$ut|Screen Capture]
