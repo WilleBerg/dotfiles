@@ -18,23 +18,10 @@
 
 	"modules-left": ["custom/padd","custom/l_end","cpu","memory","custom/cpuinfo","custom/gpuinfo","custom/r_end","custom/l_end","idle_inhibitor","clock","custom/r_end","custom/padd"],
 	"modules-center": ["custom/padd","custom/l_end","hyprland/workspaces","hyprland/window","custom/r_end","custom/padd"],
-	"modules-right": [ "custom/padd","custom/l_end", "custom/spotify", "custom/r_end", "custom/l_end","backlight","network","pulseaudio","pulseaudio#microphone","custom/updates","custom/keybindhint","custom/r_end","custom/l_end","privacy","tray","battery","custom/r_end","custom/l_end","custom/wallchange","custom/theme","custom/wbar","custom/cliphist","custom/power","custom/r_end","custom/padd"],
+	"modules-right": ["custom/padd","custom/l_end","custom/spotify","custom/r_end","custom/l_end","backlight","network","pulseaudio","pulseaudio#microphone","custom/updates","custom/keybindhint","custom/r_end","custom/l_end","privacy","tray","battery","custom/r_end","custom/l_end","custom/wallchange","custom/theme","custom/wbar","custom/cliphist","custom/power","custom/r_end","custom/padd"],
 
 
 // sourced from modules based on config.ctl //
-
-    "custom/spotify": {
-        "exec": "mediaplayer.py --player spotify",
-        "format": "{}",
-        "rotate": 0,
-        "return-type": "json",
-        "on-click": "playerctl play-pause --player spotify",
-        "on-click-right": "playerctl next --player spotify",
-        "on-click-middle": "playerctl previous --player spotify",
-        "on-scroll-up": "volumecontrol.sh -p spotify i",
-        "on-scroll-down": "volumecontrol.sh -p spotify d",
-        "tooltip": true
-    },
 
     "cpu": {
         "interval": 10,
@@ -186,6 +173,19 @@
             "(.*)Spotify Premiun": "Spotify 󰓇",
         },
         "max-length": 50
+    },
+
+    "custom/spotify": {
+        "exec": "mediaplayer.py --player spotify",
+        "format": "{}",
+        "rotate": 0,
+        "return-type": "json",
+        "on-click": "playerctl play-pause --player spotify",
+        "on-click-right": "playerctl next --player spotify",
+        "on-click-middle": "playerctl previous --player spotify",
+        "on-scroll-up": "volumecontrol.sh -p spotify i",
+        "on-scroll-down": "volumecontrol.sh -p spotify d",
+        "tooltip": true
     },
 
     "backlight": {
